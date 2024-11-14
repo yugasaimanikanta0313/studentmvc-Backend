@@ -1,11 +1,9 @@
-// server.js
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const app = express();
 require('dotenv').config();
-const PORT = process.env.PORT || 5000;
+
+const app = express();
 
 app.use(cors());
 app.use(express.json());
@@ -65,9 +63,5 @@ app.delete('/api/students/:id', async (req, res) => {
   }
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
+// Export the app module for Vercel to handle
 module.exports = app;
